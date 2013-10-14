@@ -1,0 +1,50 @@
+{{!< default}}
+
+<nav class="main-nav">
+    <div class="wrap">
+        {{#if @blog.logo}}
+            <a id="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>
+        {{/if}}
+        <a href="{{@blog.url}}" class="logo-link">{{@blog.title}}</a>
+    </div>
+</nav>
+
+<section class="posts">
+    <div class="wrap">
+        {{#post}}
+            <p class="post-title">
+                {{{title}}}
+            </p>
+            <div class="post-info">
+                {{date format='DD MMM YYYY'}}
+                <span class="post-tags">
+                    {{#if tags}}
+                        in {{tags separator=" | "}}
+                    {{/if}}
+                </span>
+            </div>
+            <div class="single-content">
+                {{content}}
+            </div>
+            {{!social bull-ish if you want it}}
+<!--             {{#if author}}
+                <br />
+                {{author.name}}
+                <br />
+                {{author.bio}}
+            {{/if}}
+            <br />
+            Share this post
+            <br />
+            <a href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <span class="hidden">Twitter</span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <span class="hidden">Facebook</span>
+            </a>
+            <a href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <span class="hidden">Google+</span>
+            </a> -->
+        {{/post}}
+    </div>
+</section>

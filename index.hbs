@@ -1,0 +1,36 @@
+{{!< default}}
+
+<nav class="main-nav">
+    <div class="wrap">
+        {{#if @blog.logo}}
+            <a id="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>
+        {{/if}}
+        <a href="{{@blog.url}}" class="logo-link">{{@blog.title}}</a>
+    </div>
+</nav>
+
+<div class="splash">
+    <p class="tag-line">{{@blog.description}}</p>
+</div>
+
+<section class="posts">
+    <div class="wrap">
+        {{#foreach posts}}
+            <p class="post-title">
+                <a href="{{url}}">{{{title}}}</a>
+            </p>
+            <div class="post-info">
+                {{date format="DD MMM YYYY"}}
+                <span class="post-tags">
+                    {{#if tags}}
+                        in {{tags}}
+                    {{/if}}
+                </span>
+            </div>
+            <p class="post-content">
+                {{excerpt}}&hellip;
+            </p>
+        {{/foreach}}
+        {{pagination}}
+    </div>
+</section>
